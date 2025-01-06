@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.9 de Lauryn e Wequisley</title>
+    <style>
+        body {
+            font-family: 'Cursive', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #FFB6C1, #FF69B4);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ff6f91;
+            padding: 20px;
+            font-size: 2.5rem;
+            border-bottom: 5px solid #fff;
+        }
+        header span {
+            font-family: 'Great Vibes', cursive;
+        }
+        button {
+            background-color: #ff8ba0;
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            margin-top: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #ff577f;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 182, 193, 0.9);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .youtube-container {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 105, 180, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            text-align: center;
+        }
+        .youtube-container iframe {
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #ff6f91;
+            padding: 10px;
+            font-size: 1rem;
+            font-style: italic;
+            margin-top: auto;
+        }
+        .flower {
+            position: absolute;
+            top: -50px;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://img.icons8.com/plasticine/100/flower.png');
+            background-size: cover;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw - 50px)) rotate(360deg);
+                opacity: 0;
+                top: 100vh;
+            }
+        }
+        .burning-heart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://img.icons8.com/color/96/heart-with-fire.png'); /* Example heart image */
+            background-size: cover;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>1.9 de Lauryn e Wequisley</span>
+    </header>
+
+    <button id="declaration-btn">Clique para ver minha declaração de amor</button>
+
+    <div class="content" id="declaration-content">
+        <p>"Lauryn, cada dia ao seu lado é um presente precioso. Te amo hoje, amanhã e para sempre! ❤️🌹"</p>
+        <p>
+            "Nosso amor é como uma música perfeita, cada nota em harmonia, cada verso com sentimento. Você é meu maior sonho realizado." 🎶❤️
+        </p>
+        <p>Frases:
+            <ul>
+                <li>"Você é a razão do meu sorriso." 😊💖</li>
+                <li>"Com você, descobri o verdadeiro significado do amor." ❤️🌹</li>
+                <li>"Amar você é o melhor de mim." 💕✨</li>
+            </ul>
+        </p>
+        <p>Trechos de músicas:
+            <ul>
+                <li>"Se eu não te amasse tanto assim... Talvez não visse flores por onde eu vim." 🎵</li>
+                <li>"É você que eu amo, não dá pra disfarçar. E não importa o quanto eu tente, só você me faz sonhar." 🎶</li>
+                <li>"Eu sei que vou te amar, por toda a minha vida, eu vou te amar." 💖</li>
+            </ul>
+        </p>
+        <div class="youtube-container" id="youtube-container">
+            <iframe id="youtube-player" src="https://www.youtube.com/embed/lm50i_r-pd8?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        Criado por Wequisley Batista 2025
+    </footer>
+
+    <div class="burning-heart"></div>
+
+    <script>
+        document.getElementById('declaration-btn').addEventListener('click', function() {
+            const content = document.getElementById('declaration-content');
+            const youtubeContainer = document.getElementById('youtube-container');
+
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                youtubeContainer.style.display = 'none';
+                const iframe = document.getElementById('youtube-player');
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => iframe.src = src, 50);
+            } else {
+                content.style.display = 'block';
+                youtubeContainer.style.display = 'block';
+            }
+        });
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+
+        setInterval(createFlower, 200);
+    </script>
+</body>
+</html>
